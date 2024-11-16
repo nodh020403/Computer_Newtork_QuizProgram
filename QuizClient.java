@@ -7,7 +7,7 @@ public class QuizClient {
         try {
             // read server IP and Port Number from server_info.dat
             BufferedReader reader = new BufferedReader(new FileReader("server_info.dat"));
-            String serverAddress = reader.readLine();  
+            String serverAddress = reader.readLine(); 
             int port = Integer.parseInt(reader.readLine());  
             reader.close();
 
@@ -16,7 +16,7 @@ public class QuizClient {
             Scanner scanner = new Scanner(System.in);
             Scanner in = new Scanner(socket.getInputStream());
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            
+
             while (in.hasNextLine()) {
                 String line = in.nextLine();
                 if (line.startsWith("QUESTION:")) {
@@ -25,6 +25,8 @@ public class QuizClient {
                     out.println(answer); // Send the answer
                 } else if (line.startsWith("RESULT:")) {
                     System.out.println(line.substring(7)); // Print the result
+                } else if (line.startsWith("SCORE:")) {
+                    System.out.println(line.substring(6)); // Print the score
                 } else if (line.startsWith("END:")) {
                     System.out.println(line.substring(4)); // Print the end message
                     break;
