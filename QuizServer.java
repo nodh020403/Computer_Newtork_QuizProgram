@@ -17,7 +17,7 @@ public class QuizServer {
     );
 
     public static void main(String[] args) throws Exception {
-        ServerSocket listener = new ServerSocket(7777);
+        ServerSocket listener = new ServerSocket(8888);
         System.out.println("The quiz server is running...");
         ExecutorService pool = Executors.newFixedThreadPool(20);
         while (true) {
@@ -60,3 +60,4 @@ public class QuizServer {
         }
     }
 }
+
