@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class QuizClient {
     public static void main(String[] args) throws Exception {
-        var socket = new Socket("localhost", 7777);
+        var socket = new Socket("localhost", 8888);
         System.out.println("Connected to the quiz server...");
         var scanner = new Scanner(System.in);
         var in = new Scanner(socket.getInputStream());
